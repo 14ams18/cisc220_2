@@ -1,0 +1,26 @@
+#!/bin/bash
+
+#deletes all previous rules
+sudo iptables -F
+
+#enable ssh only from specific IP range
+sudo iptables -A INPUT -p TCP --sport 22 -s 130.15.0.0/16 -j ACCEPT
+
+#enable ssh from any private network
+sudo iptables -A INPUT -p tcp --dport 22 -s 192.168.0.0/16 -j ACCEPT
+sudo iptables -A INPUT -p tcp --dport 22 -s 172.16.0.0/16 -j ACCEPT
+sudo iptables -A INPUT -p tcp --dport 22 -s 10.0.0.0/8 -j ACCEPT
+sudo iptables -A INPUT -p tcp --dport 22 -j DROP
+
+#allow http and https from any IP
+sudo iptables -A INPUT -p tcp --dport 80 -j ACCEPT
+
+#block connection from comp to any ip outside range
+sudo iptables -A OUTPUT -s 130.15.0.0/16 -j ACCEPT
+sudo iptables -A OUTPUT -j DROP 
+
+#allow certain IP to connect to mysql on port 3306
+sudo iptables -A INPUT -p tcp -s 130.15.100.100/32 --sport 3306 -j ACCEPT
+
+sudo iptables -A OUTPUT -p tcp --dport 22 -j DROP #drop outgoing ssh to other computers
+sudo iptables -A INPUT -p tcp -j DROP #drop any other incoming tcp traffic
