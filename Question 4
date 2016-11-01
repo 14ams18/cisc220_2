@@ -1,4 +1,6 @@
 #!/bin/bash
+#Abigael Schonewille       10176344
+#Connor Way                10192779
 echo "IP Address	Sub-Domain"
 for (( num1=0; num1<255; num1++)); do
 	for (( num2=0; num2<255; num2++)); do
