@@ -1,8 +1,8 @@
 #!/bin/bash
 echo "IP Address	Sub-Domain"
 for (( num1=0; num1<255; num1++)); do
-  for (( num2=0; num2<255; num2++)); do
-	  name=$(nslookup 130.15.${num1}.${num2} | grep -e "name =" | awk '{print $4}')
+	for (( num2=0; num2<255; num2++)); do
+		name=$(nslookup 130.15.${num1}.${num2} | grep -e "name =" | awk '{print $4}')
 		if (( ${#name} > 10 )); then
 			echo "..."
 			printf "130.15.${num1}.${num2} \t"
