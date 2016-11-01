@@ -1,3 +1,4 @@
+
 #!/bin/bash
 # * 1 * * * >> backupsLog 
 #local repository must have the same name as the global repository
@@ -17,6 +18,7 @@ git config --global user.name $2
 git config --global user.password $3
 git pull 
 adding=$(git add backup$date.tgz)
+git commit
 if [[ $adding -eq 0 ]]; then
 	echo "Backup backup$date.tgz committed to the local git repository"
 fi
