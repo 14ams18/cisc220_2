@@ -1,5 +1,7 @@
 
 #!/bin/bash
+#Abigael Schonewille       10176344
+#Connor Way                10192779
 # * 1 * * * >> backupsLog 
 #local repository must have the same name as the global repository
 #only needs the input of the local repository, username, password
