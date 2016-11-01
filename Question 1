@@ -1,0 +1,8 @@
+#!/bin/bash
+
+pidArray=($(ps axo pid | awk '{print $1}'))
+for i in "${pidArray[@]}" ; do
+	if (($i==0 )); then
+		ps axo comm,pid,ppid,start,user
+	fi
+done
