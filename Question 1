@@ -1,5 +1,6 @@
 #!/bin/bash
-
+#Abigael Schonewille       10176344
+#Connor Way                10192779
 pidArray=($(ps axo pid | awk '{print $1}'))
 for i in "${pidArray[@]}" ; do
 	if (($i==0 )); then
