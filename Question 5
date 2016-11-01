@@ -1,4 +1,7 @@
+
 #!/bin/bash
+#Abigael Schonewille       10176344
+#Connor Way                10192779
 
 #deletes all previous rules
 sudo iptables -F
